@@ -29,9 +29,9 @@
               <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
               <% else %>
               <li><%= link_to "Home", root_path %></li>
-              <li><%= link_to "About"  %></li>
-              <li><%= link_to "Sign up"  %></li>
-              <li><%= link_to "Log in"  %></li>
+              <li><%= link_to "About", about_path %></li>
+              <li><%= link_to "Sign up", new_user_registration_path %></li>
+              <li><%= link_to "Log in", new_user_session_path  %></li>
               <% end %>
             </ul>
           </div>
@@ -41,21 +41,18 @@
 
     <main>
       <% if user_signed_in? %>
-      <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "新規登録", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_user_session_path %>
-      </li>
-    <% end %>
-  </main>
-  <footer>
-    <div class="container mt-5"></div>
-  </footer>  
-    <%= yield %>
+        <li>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to "新規登録", new_user_registration_path %>
+        </li>
+        <li>
+          <%= link_to "ログイン", new_user_session_path %>
+        </li>
+      <% end %>
+    </main>
+  <%= yield %>
   </body>
 </html>
