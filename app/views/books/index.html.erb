@@ -45,8 +45,8 @@
             <% @books.each do |book| %>
               <tr>
                 <td><!--ここには投稿者の写真が入る--></td>
-                <td><%= f.text_field :title %></td>
-                <td><%= f.text_field :body %></td>
+                <td><%= book.title %></td>
+                <td><%= book.body %></td>
               </tr>
             <% end %>
           </tbody>
