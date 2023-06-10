@@ -1,7 +1,7 @@
-<%= form_with model: @book, url: '/books', method: :post do |f| %>
+<%= form_with model: book, url: '/books', method: :post do |f| %>
   <p>Title</p>
-  <%= f.text_field :title %>
+  <%= f.text_field :title, class:"form-control book_title" %>
   <p>Opinion</p>
-  <%= f.text_field :body %>
-  <%= f.submit 'Create Book' %>
+  <%= f.text_field :body, class:"form-control book_body" %>
+  <%= f.submit 'Create Book', class:"btn btn-success  mt-3" %>
 <% end %>
