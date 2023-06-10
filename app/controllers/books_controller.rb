@@ -17,9 +17,10 @@ class BooksController < ApplicationController
     @books = Book.all
     @user = current_user
   end
-    
-  def show
 
+  def show
+    @books = Book.all
+    @user = current_user
   end
 
   def destroy

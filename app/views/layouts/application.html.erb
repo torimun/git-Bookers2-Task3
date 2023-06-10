@@ -20,25 +20,64 @@
                       aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav ml-auto">
+        <div class="collapse navbar-collapse text-white" id="navbarNavDropdown">
+          <ul class="navbar-nav ml-auto" >
             <% if user_signed_in? %>
-            <li><%= link_to "Home" %></li>
-            <li><%= link_to "Users"  %></li>
-            <li><%= link_to "Books", books_path %></li>
-            <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+            <li>
+              <%= link_to root_path, class:"m-2 text-light" do %>
+                <i class="fas fa-home" area-hidden="true"></i>
+                Home
+              <% end %>
+            </li>
+            <li>
+              <%= link_to users_path, class:"m-2 text-light" do %>
+                <i class="fas fa-users" area-hidden="true"></i>
+                Users
+              <% end %>
+            </li>
+            <li>
+              <%= link_to  books_path, class:"m-2 text-light" do %>
+                <i class="fas fa-book-open" area-hidden="true"></i>
+                Books
+              <% end %>
+            </li>
+            <li>
+              <%= link_to  destroy_user_session_path, method: :delete, class:"m-2 text-light" do %>
+                <i class="fas fa-sign-out-alt" area-hidden="true"></i>
+                Log out
+              <% end %>
+            </li>
             <% else %>
-            <li><%= link_to "Home", root_path %></li>
-            <li><%= link_to "About", about_path %></li>
-            <li><%= link_to "Sign up", new_user_registration_path %></li>
-            <li><%= link_to "Log in", new_user_session_path  %></li>
+            <li>
+              <%= link_to root_path, class:"m-2 text-light" do %>
+                <i class="fas fa-home" area-hidden="true"></i>
+                Home
+              <% end %>
+            </li>
+            <li>
+              <%= link_to about_path, class:"m-2 text-light" do %>
+                <i class="fas fa-link" area-hidden="true"></i>
+                About
+              <% end %>
+            </li>
+            <li>
+              <%= link_to  new_user_registration_path, class:"m-2 text-light" do %>
+                <i class="fas fa-user-plus" area-hidden="true"></i>
+                Sign up
+              <% end %>
+            </li>
+            <li>
+              <%= link_to  new_user_session_path, class:"m-2 text-light" do %>
+                <i class="fas fa-sign-in-alt" area-hidden="true"></i>
+                Log in
+              <% end %>
+            </li>
             <% end %>
           </ul>
         </div>
       </div>
     </nav>
   </header>
-
 <%= yield %>
 </body>
 </html>
