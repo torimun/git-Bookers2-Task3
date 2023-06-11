@@ -39,13 +39,22 @@
           <tbody>
             <% @books.each do |book| %>
               <tr>
-                <td><%= image_tag @user.get_profile_image(100,100) %></td>
                 <td>
-                  <%= link_to user_path(current_user.id) do %>
-                    <%= @book.title %>
+                  <!--作った人のuserのshowページへリンク-->
+                  <!--作った人のprofile画像を表示-->
+                  <%= link_to do %>
+                    <%= image_tag @user.get_profile_image(100,100) %>
                   <% end %>
                 </td>
-                <td><%= @book.body %></td>
+                <td>
+                  <!--bookのshowページにリンク-->
+                  <%= link_to do %>
+                    <%= book.title %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= book.body %>
+                </td>
               </tr>
             <% end %>
           </tbody>
