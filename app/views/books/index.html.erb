@@ -42,15 +42,15 @@
                 <td>
                   <!--作った人のuserのshowページへリンク-->
                   <!--作った人のprofile画像を表示-->
-                  <%= link_to do %>
-                    <%= image_tag @user.get_profile_image(100,100) %>
-                  <% end %>
+                    <%= link_to user_path(book.user_id) do %>
+                      <%= image_tag book.user.get_profile_image(100,100) %>
+                    <% end %>
                 </td>
                 <td>
                   <!--bookのshowページにリンク-->
-                  <%= link_to do %>
-                    <%= book.title %>
-                  <% end %>
+                    <%= link_to book_path(book.id) do %>
+                      <%= book.title %>
+                    <% end %>
                 </td>
                 <td>
                   <%= book.body %>
