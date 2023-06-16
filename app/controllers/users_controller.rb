@@ -13,7 +13,13 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    user_id = params[:id]
+    login_user_id = current_user.id
+  if(user_id != login_user_id)
+    redirect_to post_images_path
+  end 
+      @user = User.find(params[:id])
+   
   end
 
   def update
