@@ -13,16 +13,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-    user_id = params[:id]
-    login_user_id = current_user.id
-  if(user_id != login_user_id)
-    redirect_to post_images_path
-  end 
-      @user = User.find(params[:id])
-   
+    is_matching_login_user
   end
 
   def update
+    is_matching_login_user
     @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:notice] = "You have updated user successfully."
@@ -37,5 +32,15 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :introduction)
+  end
+
+  def is_matching_login_user
+    @user = User.find(params[:id])
+    user_id = params[:id]
+    login_user_id = current_user.id
+    if @user ==  current_user
+    else
+      redirect_to user_path(current_user.id)
+    end
   end
 end
