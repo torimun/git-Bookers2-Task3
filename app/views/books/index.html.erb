@@ -13,7 +13,7 @@
           <% end %>
         </div>
         <h2>User info</h2>
-        <%= image_tag @user.get_profile_image(80,80) %>
+        <%= image_tag @user.get_profile_image(100,100) %>
         <table class="table mb-5">
           <tbody>
             <tr>
@@ -53,7 +53,7 @@
                   <!--作った人のuserのshowページへリンク-->
                   <!--作った人のprofile画像を表示-->
                     <%= link_to user_path(book.user_id) do %>
-                      <%= image_tag book.user.get_profile_image(100,100) %>
+                      <%= image_tag book.user.get_profile_image(80,80) %>
                     <% end %>
                 </td>
                 <td>
